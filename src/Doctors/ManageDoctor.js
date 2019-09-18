@@ -152,7 +152,7 @@ import {
                                                                 <td>{item.email}</td>
                                                                 <td>{item.contact}</td>
                                                                 <td>{item.mrname}</td>
-                                                                <td><a href={"/doctor/1"} ><button className="btn btn-info">View</button></a><a href={"/doctor/delete/"+item.id}><button className="btn btn-danger">Delete</button></a></td>
+                                                                <td><a href={"/doctor/" + item.id} ><button className="btn btn-info">View</button></a><a href={"/doctor/delete/"+item.id}><button className="btn btn-danger">Delete</button></a></td>
                                                             </tr>
                                                         ))}
                                                     </tbody>

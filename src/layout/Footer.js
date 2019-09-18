@@ -4,9 +4,9 @@ export default class Footer extends Component {
     render() {
         return (
             <React.Fragment>
-                    <footer className="footer text-center">
-                    &copy; 2018 - 2019. All rights reserved.<a href="http://riverroute.in/"> Riverroute Creative Group</a>
-                    </footer>
+                <footer className="footer text-center">
+                    &copy; 2020 Sunpharma Speciality Care. All rights reserved. | Developed By<a href="http://riverroute.in/" target="_blank"> Riverroute Creative Group</a>
+                </footer>
             </React.Fragment>
         )
     }

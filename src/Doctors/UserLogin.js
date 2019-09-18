@@ -110,7 +110,7 @@ class UserLogin extends Component {
 
                                         <div className="form-group ">
                                             <div className="col-12">
-                                                <input class="form-control" type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleEvent} />
+                                                <input class="form-control" type="text" name="username" placeholder="Email Address" value={this.state.username} onChange={this.handleEvent} />
                                                 <div className="text-danger">{this.state.usernameErr}</div>
                                             </div>
                                         </div>

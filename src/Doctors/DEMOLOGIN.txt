@@ -1,0 +1,103 @@
+import React, { Component } from 'react';
+import {
+    BrowserRouter as Router,
+    Redirect
+} from "react-router-dom";
+
+class UserLogin extends Component {
+    state = {
+        username: "",
+        password: "",
+        id: "",
+        redirect:false
+    };
+    handleEvent = (e) => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    user_login = (e) => {
+        e.preventDefault();
+        let data = {
+            username: this.state.username,
+            password: this.state.password
+        };
+        const url = 'http://192.168.0.5/register/Register/userlogin';
+        const myheader = new Headers();
+        myheader.append('Content-Type', 'application/json');
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            myheader
+        };
+
+        fetch(url, options)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    console.log("RESULT ",result);
+                    //alert(this.state.message)
+                    localStorage.setItem("userid",result.id)
+                    localStorage.setItem("userrole", result.role)
+                    localStorage.setItem("username", result.name)
+                },
+                (error) => {
+                    this.setState({ error });
+                    console.log(error.message)
+                }
+            )
+        //console.log(this.state)
+
+    }
+    render () {
+        if ((localStorage.getItem("userid") != null) && (localStorage.getItem("userrole") == "mr")) 
+        {
+                return(
+                    <React.Fragment>
+                        <Redirect to="/mr/dashboard" />
+                    </React.Fragment>
+                )
+        }
+        else
+        {
+        return (
+            <React.Fragment>
+                <section className="page-title">
+                    <div className="auto-container">
+                        <h1 className="text-center">User Login</h1>
+                    </div>
+                </section>
+                <div className="wrapper fadeInDown">
+                    <div id="formContent">
+                      
+                        <div className="fadeIn first">
+                            
+                        </div>
+
+                        <hr/>
+                        <form onSubmit={this.user_login}>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <input type="text" id="username" className="fadeIn second" name="username" placeholder="UserName" value={this.state.username} onChange={this.handleEvent} />
+    		                        </div>
+                                        <div className="col-md-12">
+                                            <input type="password" id="password" className="fadeIn third" name="password" placeholder="Password" value={this.state.password} onChange={this.handleEvent} />
+    		                            </div>
+                                        </div>
+                                        <hr/>
+                                            <input type="submit" className="fadeIn fourth" value="Log In"/>
+                            </form>
+
+                        <div id="formFooter">
+                                                <div><a href="<?php echo base_url(); ?>users/forgotpassword"></a></div>
+                                                <div><a href="<?php echo base_url(); ?>users/forgotpassword"></a></div>
+                                            </div>
+
+  </div>
+                                    </div>
+            </React.Fragment>
+        )
+        }
+    }
+}
+
+export default UserLogin;

@@ -62,17 +62,28 @@ import {
         if (!this.state.email.includes("@")) {
             emailerr = "The Email you entered is not valid !!!";
         }
+        else {
+            emailerr = "";
+        }
         if (!this.state.name) {
             nameerr = "Name field Should not be Empty !!!";
+        }
+        else {
+            nameerr = "";
         }
 
         if (!this.state.contact) {
             contacterr = "Contact field Should not be Empty !!!";
         }
+        else {
+            contacterr = "";
+        }
 
-        if(this.state.mrId == "")
-        {
+        if (this.state.mrId == "") {
             mrerror = "Please Select MR !!!";
+        }
+        else {
+            mrerror = "";
         }
         if (emailerr || nameerr || contacterr || mrerror) {
             this.setState({ emailerr });

@@ -31,8 +31,14 @@ class AdminLogin extends Component {
         if (this.state.username == "") {
             usernameErr = "Please Enter Username !!!";
         }
+        else {
+            usernameErr = "";
+        }
         if (!this.state.password) {
             passwordErr = "Please Enter Password !!!";
+        }
+        else {
+            passwordErr = "";
         }
 
         if (usernameErr || passwordErr) {

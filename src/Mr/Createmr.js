@@ -37,23 +37,36 @@ import {
         let locationErr="";
 
 
-        if(! this.state.email.includes("@"))
-        {
-            emailerr="The Email you entered is not valid !!!";
+        if (!this.state.email.includes("@")) {
+            emailerr = "The Email you entered is not valid !!!";
         }
-        if(! this.state.name)
-        {
+        else {
+            emailerr = "";
+        }
+        if (!this.state.name) {
             nameerr = "Name field Should not be Empty !!!";
+        }
+        else {
+            nameerr = "";
         }
 
         if (!this.state.contact) {
             contacterr = "Contact field Should not be Empty !!!";
         }
+        else {
+            contacterr = "";
+        }
         if (!this.state.designation) {
             designationErr = "Designation field Should not be Empty !!!";
         }
+        else {
+            designationErr = "";
+        }
         if (!this.state.location) {
-            locationErr = "Contact field Should not be Empty !!!";
+            locationErr = "Location field Should not be Empty !!!";
+        }
+        else {
+            locationErr = "";
         }
         if (emailerr || nameerr || contacterr ||  designationErr || locationErr) 
         {
